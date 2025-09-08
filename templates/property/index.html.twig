@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Find My Dream Home</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Find My Dream Home</title>
+		<link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
+
+		<link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+	</head>
+	<body>
+		{% include 'partials/header.html.twig' %}
+            <div class="content">
+			<section>
+				<h2>Nos annonces de maison</h2>
+				<div class="annonces">
+					{% for maison in maisons %}
+						<div class="annonce">
+							<img src="{{ maison.image }}" alt="{{ maison.titre }}">
+							<h3>{{ maison.titre }}</h3>
+							<p>Prix :
+								{{ maison.prix }}</p>
+							<p>{{ maison.ville }}</p>
+							<p>{{ maison.description }}</p>
+							<p>Type :
+								{{ maison.type }}</p>
+							<a class="contact-btn" href="#">Contact</a>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+
+			<section>
+				<h2>Nos annonces d’appartements</h2>
+				<div class="annonces">
+					{% for appartement in appartements %}
+						<div class="annonce">
+							<img src="{{ appartement.image }}" alt="{{ appartement.titre }}">
+							<h3>{{ appartement.titre }}</h3>
+							<p>Prix :
+								{{ appartement.prix }}</p>
+							<p>Ville :
+								{{ appartement.ville }}</p>
+							<p>{{ appartement.description }}</p>
+							<p>Type :
+								{{ appartement.type }}</p>
+							<a class="contact-btn" href="#">Contact</a>
+						</div>
+					{% endfor %}
+				</div>
+			</section>
+
+		</div>
 
 
-<div class="content">
-
-    <section>
-        <h2>Nos annonces de maison</h2>
-        <div class="annonces">
-            {% for maison in maisons %}
-                <div class="annonce">
-                    <img src="{{ maison.image }}" alt="{{ maison.titre }}">
-                    <h3>{{ maison.titre }}</h3>
-                    <p>Prix : {{ maison.prix }}</p>
-                    <p>{{ maison.ville }}</p>
-                    <p>{{ maison.description }}</p>
-                    <p>Type : {{ maison.type }}</p>
-                    <a class="contact-btn" href="#">Contact</a>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-
-    <section>
-        <h2>Nos annonces d’appartements</h2>
-        <div class="annonces">
-            {% for appartement in appartements %}
-                <div class="annonce">
-                    <img src="{{ appartement.image }}" alt="{{ appartement.titre }}">
-                    <h3>{{ appartement.titre }}</h3>
-                    <p>Prix : {{ appartement.prix }}</p>
-                    <p>Ville : {{ appartement.ville }}</p>
-                    <p>{{ appartement.description }}</p>
-                    <p>Type : {{ appartement.type }}</p>
-                    <a class="contact-btn" href="#">Contact</a>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
-
-</div>
-
-
-</body>
+	</body>
 </html>

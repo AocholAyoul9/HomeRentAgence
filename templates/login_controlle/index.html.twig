@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login - Find My Dream Home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="container-items">
+        <h2>Connexion à Find My Dream Home</h2>
+
+        <form method="POST" action="{{ path('app_login_controlle') }}">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <div class="link">
+            <p>Pas encore de compte ?
+                <a href="{{ path('app_register') }}">Inscrivez-vous</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

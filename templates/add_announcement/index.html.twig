@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'annonce - Find My Dream Home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/addAnonce.css') }}">
+{% endblock %}
+
+{% block body %}
+<main class="add-anonce">
+    <h2>Ajouter une annonce</h2>
+
+    <form id="listingForm" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" required />
+        </div>
+
+        <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" id="titre" name="titre" required />
+        </div>
+
+        <div class="form-group">
+            <label for="prix">Prix (€)</label>
+            <input type="number" id="prix" name="prix" required min="0" />
+        </div>
+
+        <div class="form-group">
+            <label for="ville">Ville</label>
+            <input type="text" id="ville" name="ville" required />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description courte</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="rent">Rent</option>
+                <option value="sale">Sale</option>
+            </select>
+        </div>
+
+        <button type="submit">Enregistrer</button>
+    </form>
+
+    <div class="confirmation" id="confirmationMessage" style="display: none;">
+       ✅ Annonce enregistrée avec succès !
+    </div>
+
+    <a href="{{ path('app_home') }}" class="return">← Retour à l’accueil</a>
+</main>
+{% endblock %}
